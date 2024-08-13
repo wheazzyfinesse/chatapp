@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io('/api/socket')
 
 const clienstTotal = document.getElementById("clients-total");
 const messageContainer = document.getElementById("message-container");
