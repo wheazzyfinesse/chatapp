@@ -3,7 +3,6 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { Server } from "socket.io";
 import { createServer } from "http";
-import cors from 'cors'
 
 const app = express();
 const server = createServer(app);
@@ -13,7 +12,12 @@ const PORT = process.env.PORT || 5000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(join(__dirname, "public")));
-app.use(cors())
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    credentials: true
+}
+))
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

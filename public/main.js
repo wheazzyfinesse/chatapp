@@ -1,6 +1,5 @@
-const socket = io(server, {
-    transports: ['websocket', 'polling'],  // Allow fallback to polling if WebSocket fails
-});
+const socket = io();
+
 const clienstTotal = document.getElementById("clients-total");
 const messageContainer = document.getElementById("message-container");
 const nameInput = document.getElementById("name-input");
